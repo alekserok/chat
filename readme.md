@@ -1,4 +1,5 @@
-# instructions
+# simple chat with node.js socket.io redis and jwt-token authorization
+## instructions
 
 create .env file and copy .env.example to .env
 run npm install
