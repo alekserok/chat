@@ -1,9 +1,10 @@
 # simple chat with node.js socket.io redis and jwt-token authorization
 ## instructions
 
-create .env file and copy .env.example to .env
-run npm install
-run node server.js to start server
+*   clone or download repository
+*   create .env file and copy .env.example to .env
+*   run npm install
+*   run node server.js to start server
 
 ## client js code example
 
@@ -35,7 +36,7 @@ var socket = io.connect('http://yourservername.dev:9000', {
         to: reseiver-id, 
         from: sender-id, 
         messageText: message-text,
-        avatar: avatar, 
+        avatar: http://yourservername.dev/images/avatar.jpg, 
         created: new Date().getTime()
     })
     
