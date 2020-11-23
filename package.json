@@ -1,12 +1,14 @@
 {
-  "name": "pride_chat",
+  "name": "simple_chat",
   "version": "0.0.1",
   "private": true,
-  "scripts": {},
+  "scripts": {
+    "start": "node server.js"
+  },
   "dependencies": {
     "array-uniq": "^1.0.3",
     "dotenv": "^2.0.0",
-    "express": "~4.13.1",
+    "express": "^4.17.1",
     "randomstring": "^1.1.5",
     "redis": "^2.6.5",
     "socket.io": "^1.7.2",

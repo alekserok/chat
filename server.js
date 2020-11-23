@@ -74,6 +74,10 @@ io.on('connection', function (socket) {
     });
 });
 
+app.get('/', function (req, res) {
+    res.send('Hello World');
+});
+
 server.listen(process.env.PORT, function () {
     writeLog('listening on http://localhost:' + process.env.PORT);
 });
