@@ -6,8 +6,8 @@ var path = require('path');
 var randomstring = require("randomstring");
 var server = require('http').Server(app);
 var socketioJwt = require('socketio-jwt');
-var io = require("socket.io")(server);
-var redis = require('redis').createClient(); //creates a new client
+var io = require("socket.io")(server, {cors: {origin: process.env.ORIGIN}});
+var redis = require('redis').createClient({'host': process.env.REDIS_HOST}); //creates a new client
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -16,6 +16,11 @@ var users = {};
 redis.on("error", function (err) {
     writeLog(err);
 });
+
+if (process.env.REDIS_PASS) {
+    console.log(process.env.REDIS_PASS);
+    redis.auth(process.env.REDIS_PASS);
+}
 
 io.use(socketioJwt.authorize({
     secret: process.env.SECRET,
@@ -75,7 +80,7 @@ io.on('connection', function (socket) {
 });
 
 app.get('/', function (req, res) {
-    res.send('Hello World');
+    res.send('Hello World!');
 });
 
 server.listen(process.env.PORT, function () {
